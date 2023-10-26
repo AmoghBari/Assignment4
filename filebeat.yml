@@ -1,0 +1,11 @@
+filebeat:
+  inputs:
+    - type: log
+      enabled: true
+      paths:
+       - '/var/log/nginx/*.log'
+  processors:
+    - add_docker_metadata: ~
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
